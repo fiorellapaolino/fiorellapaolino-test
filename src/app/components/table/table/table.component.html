@@ -1,0 +1,73 @@
+<!-- <div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6" *ngIf="users">
+                    <h2> <b>Clients</b></h2>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped table-hover tbl-content">
+            <thead>
+                <tr>
+                    <th>userId</th>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>completed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>
+                        <span>{{ user.userId }}</span>
+                    </td>
+                    <td>
+                        <span>{{ user.id }}</span>
+                    </td>
+                    <td>
+                        <span>{{ user.title }}</span>
+                    </td>
+                    <td>
+                        <span>{{ user.completed }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+ -->
+ <div class="table-t">
+    <div class="tbl-header">
+      <table>
+        <thead>
+          <tr>
+            <th>userId</th>
+            <th>Id</th>
+            <th>title</th>
+            <th>completed</th>
+          </tr>
+        </thead>
+      </table>
+      <div class="tbl-content">
+        <table>
+          <tbody>
+                <tr *ngFor="let user of users">
+                  <td> {{ user.userId }} </td>
+                  <td> {{ user.id }} </td>
+                  <td> {{ user.title }} </td>
+                  <td> {{ user.completed }} </td>
+                </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="tips" >
+      <h1>Fiorella Cristal Paolino</h1>
+      <a href="https://www.linkedin.com/in/fiorellapaolino/">
+        <img src="https://img.icons8.com/fluency/48/000000/linkedin.png"/>
+      </a>
+    </div>
+  </footer>

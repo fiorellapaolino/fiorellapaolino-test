@@ -1,0 +1,79 @@
+<div class="title-container">
+  <h1>Te contactaremos enseguida</h1>
+</div>
+<div class="container">
+  <form class="col2" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Name</label>
+    <input class="number" type="text" formControlName="name" required />
+    <div *ngIf="form.get('name')?.touched && form.get('name')?.errors?.['required']">This field is required.</div>
+
+    <label>Last name</label>
+    <input class="inputname" type="text" placeholder="" formControlName="lastname" required />
+    <div *ngIf="form.get('lastname')?.touched && form.get('lastname')?.errors?.['required']">This field is required.
+    </div>
+
+    <label>Age</label>
+    <input class="expire" type="number" min="16" max="55" placeholder="" required formControlName="age"
+      pattern="^/[-a-zA-Z0-9 ]/" onKeyPress="if(this.value.length==2) return false;" />
+
+    <div *ngIf="form.get('age')?.errors?.['min']">
+      La edad debe ser mayor que 16.
+      {{form.get('age')?.errors?.['min']?.requiredMin}} 
+    </div>
+    <div *ngIf="form.get('age')?.errors?.['max']">
+      La edad debe ser menor que 55.
+      {{form.get('age')?.errors?.['max']?.requiredMax}}
+    </div>
+
+    <label>Phone</label>
+    <input class="number" type="number" placeholder="" formControlName="phone" maxLength="9" pattern="^/[-a-zA-Z0-9 ]/"
+      onKeyPress="if(this.value.length==9) return false;" required />
+
+    <em *ngIf="form.invalid && form.dirty && form.hasError('maxLength')">Solo se permiten 9 caracteres.</em>
+    <div *ngIf="form.hasError('required')">
+      Phone is required
+    </div>
+    <div *ngIf="form.get('phone')?.touched && form.get('phone')?.errors?.['required']">This field is required.</div>
+    <div *ngIf="form.get('age')?.errors?.['max']">
+
+      {{form.get('age')?.errors?.['max']?.requiredMax}} characters.
+    </div>
+
+    <label>Email</label>
+    <input class="number" type="text" placeholder="" formControlName="email" required />
+    <div *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['required']">This field is required.</div>
+
+    <label>Description</label>
+    <input class="number input-description" type="text" size="50" formControlName="description" />
+
+    <button type="submit" class="btn-submit" (click)="save()">Submit</button>
+
+  </form>
+  <div class="col1" *ngFor="let us of users; let i = index;">
+    <div class="card">
+      <aside class="profile-card">
+        <header>
+          <div class="profile-bio">
+            <a>
+              <img src="../../../../assets/avatar-female.jpg">
+            </a>
+            <h1>{{us.name}}</h1>
+            <h1>{{us.lastname}}</h1>
+            <p>{{us.age}}</p>
+            <p>{{us.phone}}</p>
+            <p>{{us.email}}</p>
+            <p>{{us.description}}</p>
+          </div>
+        </header>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="tips">
+      <h1>Fiorella Cristal Paolino</h1>
+      <a href="https://www.linkedin.com/in/fiorellapaolino/">
+        <img src="https://img.icons8.com/fluency/48/000000/linkedin.png" />
+      </a>
+    </div>
+  </footer>
